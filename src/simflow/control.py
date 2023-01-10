@@ -1255,3 +1255,29 @@ class Stop(InputConsumer):
         """
         self.root.stop_execution()
         return None
+
+
+def run_flow(flow, cleanup=False, print_tree=False):
+    """
+    Executes the flow. Calls setup, execute, wrapup and optionally cleanup.
+
+    :param flow: the actor to execute
+    :type flow: actor
+    :param cleanup: whether to perform a cleanup operation (caution: clears graphical output)
+    :type cleanup: bool
+    :param print_tree: if the actor is a tree then the actor tree can be output (bool)
+    :type print_tree: bool
+    """
+
+    msg = flow.setup()
+    if msg is None:
+        if print_tree and isinstance(flow, Flow):
+            print("\n" + flow.tree + "\n")
+        msg = flow.execute()
+        if msg is not None:
+            print("Error executing flow:\n" + msg)
+    else:
+        print("Error setting up flow:\n" + msg)
+    flow.wrapup()
+    if cleanup:
+        flow.cleanup()
