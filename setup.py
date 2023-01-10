@@ -14,7 +14,7 @@ def _read(f):
 
 setup(
     name="simple-flow",
-    description="Library for making it easy to manage parameters of objects via dictionaries or JSON.",
+    description="This library provides basic building blocks for creating and executing simple workflows.",
     long_description=(
         _read('DESCRIPTION.rst') + b'\n' +
         _read('CHANGES.rst')).decode('utf-8'),
