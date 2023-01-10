@@ -13,12 +13,12 @@ def _read(f):
 
 
 setup(
-    name="simple-flow",
+    name="simple-workflow",
     description="This library provides basic building blocks for creating and executing simple workflows.",
     long_description=(
         _read('DESCRIPTION.rst') + b'\n' +
         _read('CHANGES.rst')).decode('utf-8'),
-    url="https://github.com/fracpete/simple-flow",
+    url="https://github.com/fracpete/simple-workflow",
     classifiers=[
         'Development Status :: 4 - Beta',
         'License :: OSI Approved :: MIT License',
